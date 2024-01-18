@@ -27,7 +27,7 @@ pip install twisted
 Start the server with these optional parameters for the host and port. By default, it binds to all interfaces (0.0.0.0) on port 2222.
 
 ```bash
-python3 ssh.py --host 0.0.0.0 --port 2222
+python3 ssh.py --host 0.0.0.0 --port 2222 --ssh_version "SSH-2.0-OpenSSH_7.4"
 ```
 
 ## Logging
