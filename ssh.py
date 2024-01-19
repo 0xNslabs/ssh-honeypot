@@ -2,16 +2,17 @@ import os
 import argparse
 from warnings import filterwarnings
 filterwarnings("ignore")
-from twisted.internet import reactor, endpoints
+
+from twisted.internet import reactor, endpoints, defer
 from twisted.conch.ssh import factory, keys, userauth, connection, transport
 from twisted.cred import portal, credentials, error
 from twisted.logger import textFileLogObserver
 from twisted.python import log
 from cryptography.hazmat.backends import default_backend
-from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives.asymmetric import rsa
 from zope.interface import implementer
-from twisted.internet import defer
+
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
 @implementer(portal.IRealm)
