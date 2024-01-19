@@ -13,14 +13,15 @@ The Simple SSH Honeypot Server is a script for cybersecurity enthusiasts and pro
 ## Requirements
 - Python 3.x
 - Twisted Python library
-
+- Cryptography Python library
+  
 ## Installation
 To install and set up the SSH honeypot server, execute the following commands:
 
 ```bash
 git clone https://github.com/0xNslabs/ssh-honeypot.git
 cd ssh-honeypot
-pip install twisted
+pip install twisted cryptography
 ```
 
 ## Usage
