@@ -93,7 +93,7 @@ def main():
     parser = argparse.ArgumentParser(description='Run a simple SSH honeypot server.')
     parser.add_argument('--host', type=str, default='0.0.0.0', help='Host to bind the SSH server to.')
     parser.add_argument('--port', type=int, default=2222, help='Port to bind the SSH server to.')
-    parser.add_argument('--ssh_version', type=str, default='SSH-2.0-OpenSSH_7.4', help='Custom SSH version string to display.')
+    parser.add_argument('--version', type=str, default='SSH-2.0-OpenSSH_7.4', help='Custom SSH version string to display.')
     args = parser.parse_args()
 
     LOG_FILE_PATH = os.path.join(script_dir, "ssh_honeypot.log")
@@ -103,7 +103,7 @@ def main():
     log_observer = textFileLogObserver(open(LOG_FILE_PATH, 'a'))
     log.startLoggingWithObserver(log_observer, setStdout=False)
 
-    ssh_factory = SimpleSSHFactory(args.ssh_version)
+    ssh_factory = SimpleSSHFactory(args.version)
     ssh_realm = SimpleSSHRealm()
     ssh_portal = portal.Portal(ssh_realm)
     ssh_portal.registerChecker(LoggingPasswordChecker())
